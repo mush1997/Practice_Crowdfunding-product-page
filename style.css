@@ -1,0 +1,648 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Commissioner;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@keyframes shadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body::before {
+  content: "";
+  width: 100%;
+  background-color: hsl(0, 0%, 0%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  display: none;
+}
+
+body.shadow::before {
+  display: block;
+  animation: shadow 0.8s forwards;
+}
+
+body {
+  background-image: url("images/image-hero-desktop.jpg");
+  background-color: whitesmoke;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body header {
+  margin-bottom: 120px;
+  padding: 40px;
+  width: 80%;
+  min-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body header .logo {
+  width: 20%;
+  min-width: 120px;
+  max-width: 160px;
+}
+body header #openMenu,
+body header #closeMenu {
+  display: none;
+}
+body header ul li {
+  margin: 0 10px;
+  display: inline-block;
+  color: white;
+}
+body header ul li:hover {
+  cursor: pointer;
+}
+body main {
+  margin-bottom: 40px;
+  width: 50%;
+  min-width: 520px;
+}
+body main section {
+  margin: 20px 0;
+  padding: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+body main section h1,
+body main section h2,
+body main section h3,
+body main section h4 {
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+}
+body main section p {
+  font-size: 1rem;
+  color: hsl(0, 0%, 48%);
+}
+body main section .btn,
+body main section .bookmark,
+body main section .outOfStock {
+  padding: 12px 20px;
+  height: 44px;
+  border-radius: 24px;
+  border: none;
+  background-color: hsl(176, 50%, 47%);
+  font-weight: 500;
+  color: white;
+}
+body main section .btn:hover,
+body main section .bookmark:hover,
+body main section .outOfStock:hover {
+  cursor: pointer;
+  background-color: hsl(176, 72%, 28%);
+}
+body main #project {
+  position: relative;
+  text-align: center;
+}
+body main #project .icon {
+  width: 60px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-30px);
+}
+body main #project h1 {
+  font-size: 1.75rem;
+  margin-top: 12px;
+}
+body main #project p {
+  margin: 10px 0 30px 0;
+}
+body main #project div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main #project div .bookmark {
+  padding-left: 40px;
+  padding-right: 20px;
+  background-color: gainsboro;
+  color: hsl(0, 0%, 48%);
+  position: relative;
+}
+body main #project div .bookmark:hover {
+  color: hsl(0, 0%, 48%);
+}
+body main #project div .bookmark #bookmarkIcon {
+  height: 44px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  filter: contrast(35%);
+}
+body main #project div .bookmark.saved {
+  color: hsl(176, 72%, 28%);
+}
+body main #project div .bookmark.saved #bookmarkIcon {
+  filter: invert(34%) sepia(12%) saturate(4918%) hue-rotate(136deg) brightness(100%) contrast(84%);
+}
+body main #summary {
+  display: flex;
+  flex-wrap: wrap;
+}
+body main #summary .records {
+  flex-basis: 30%;
+  margin-bottom: 20px;
+  padding: 0 20px 10px 30px;
+  border-left: 1px solid gainsboro;
+}
+body main #summary .records h2 {
+  font-size: 2rem;
+}
+body main #summary .records p {
+  margin-top: 6px;
+}
+body main #summary .records:first-of-type {
+  padding-left: 0;
+  border-left: none;
+}
+body main #summary .progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: gainsboro;
+}
+body main #summary .progress div {
+  width: 89.9%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: hsl(176, 50%, 47%);
+}
+body main #introduction h3 {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+body main #introduction p {
+  line-height: 1.6;
+  margin: 30px 0;
+}
+body main #introduction article {
+  margin-bottom: 24px;
+  padding: 30px 20px;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+}
+body main #introduction article hgroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main #introduction article hgroup h3 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+body main #introduction article hgroup p {
+  color: hsl(176, 50%, 47%);
+  margin: 0;
+}
+body main #introduction article div {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main #introduction article div p span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+  vertical-align: middle;
+  margin-right: 6px;
+}
+body main #introduction .unavailable {
+  opacity: 0.4;
+  margin-bottom: 0;
+}
+body main #introduction .unavailable .outOfStock {
+  background-color: hsl(0, 0%, 48%);
+}
+body main #introduction .unavailable .outOfStock:hover {
+  cursor: not-allowed;
+  background-color: hsl(0, 0%, 48%);
+}
+body main #pledgeModal,
+body main #thankMsg {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+body main #pledgeModal {
+  width: 60%;
+  min-width: 610px;
+  max-width: 800px;
+}
+body main #pledgeModal .close {
+  text-align: right;
+}
+body main #pledgeModal .close img:hover {
+  cursor: pointer;
+}
+body main #pledgeModal h3 {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+body main #pledgeModal p {
+  line-height: 1.6;
+  margin: 8px 0 30px 0;
+}
+body main #pledgeModal .noReward,
+body main #pledgeModal .reward {
+  margin-bottom: 24px;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+}
+body main #pledgeModal .noReward label,
+body main #pledgeModal .reward label {
+  cursor: pointer;
+  position: relative;
+}
+body main #pledgeModal .noReward label::before,
+body main #pledgeModal .reward label::before {
+  content: "";
+  border-radius: 50%;
+  border: 1px solid gainsboro;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 24px;
+  left: 19px;
+}
+body main #pledgeModal .noReward label::after,
+body main #pledgeModal .reward label::after {
+  content: "";
+  border-radius: 50%;
+  border: 1px solid hsl(176, 50%, 47%);
+  background-color: hsl(176, 50%, 47%);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 24px;
+  left: 19px;
+  transform: scale(55%);
+  opacity: 0;
+}
+body main #pledgeModal .noReward label .wrapper,
+body main #pledgeModal .reward label .wrapper {
+  padding: 20px 20px 30px 20px;
+}
+body main #pledgeModal .noReward label .wrapper input,
+body main #pledgeModal .reward label .wrapper input {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+body main #pledgeModal .noReward label .wrapper h4,
+body main #pledgeModal .reward label .wrapper h4 {
+  display: inline;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
+body main #pledgeModal .noReward label .wrapper h4:hover,
+body main #pledgeModal .reward label .wrapper h4:hover {
+  color: hsl(176, 50%, 47%);
+}
+body main #pledgeModal .noReward label .wrapper p,
+body main #pledgeModal .reward label .wrapper p {
+  margin: 12px 0 0 40px;
+}
+body main #pledgeModal .noReward label.clicked::after,
+body main #pledgeModal .reward label.clicked::after {
+  opacity: 1;
+}
+body main #pledgeModal .noReward.picked,
+body main #pledgeModal .reward.picked {
+  border-color: hsl(176, 50%, 47%);
+}
+body main #pledgeModal .noReward label .wrapper div {
+  margin-top: -22px;
+  margin-left: 40px;
+}
+body main #pledgeModal .reward label .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+body main #pledgeModal .reward label .wrapper div {
+  display: flex;
+  align-items: center;
+}
+body main #pledgeModal .reward label .wrapper div h4 {
+  margin-left: 20px;
+  margin-right: 16px;
+}
+body main #pledgeModal .reward label .wrapper div p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: hsl(176, 50%, 47%);
+  vertical-align: middle;
+  margin: 0;
+}
+body main #pledgeModal .reward label .wrapper .detail {
+  line-height: 1.6;
+}
+body main #pledgeModal .reward label .wrapper .remaining {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  vertical-align: middle;
+}
+body main #pledgeModal .reward label .wrapper .remaining span {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+  margin-right: 6px;
+}
+body main #pledgeModal .reward .customPledge {
+  padding: 20px;
+  border-top: 2px solid gainsboro;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main #pledgeModal .reward .customPledge p {
+  margin: 0;
+}
+body main #pledgeModal .reward .customPledge div input {
+  padding: 12px 20px;
+  margin-right: 8px;
+  width: 90px;
+  height: 45px;
+  border-radius: 24px;
+  border: 2px solid gainsboro;
+  outline: none;
+  font-weight: 700;
+  color: hsl(0, 0%, 0%);
+  caret-color: hsl(176, 72%, 28%);
+}
+body main #pledgeModal .reward .customPledge div input:hover {
+  cursor: pointer;
+}
+body main #pledgeModal .reward .customPledge div input:focus {
+  border: 1px solid hsl(176, 72%, 28%);
+  outline: none;
+}
+body main #pledgeModal .reward .hide {
+  display: none;
+}
+body main #pledgeModal .notAllowed {
+  opacity: 0.4;
+  margin-bottom: 0;
+}
+body main #pledgeModal .notAllowed label {
+  cursor: not-allowed;
+}
+body main #pledgeModal .notAllowed label .wrapper h4:hover {
+  color: hsl(0, 0%, 0%);
+}
+body main #thankMsg {
+  width: 38%;
+  min-width: 400px;
+  max-width: 500px;
+  text-align: center;
+}
+body main #thankMsg h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+body main #thankMsg p {
+  line-height: 1.6;
+  margin: 20px 0 30px 0;
+}
+body main #pledgeModal.show,
+body main #thankMsg.show {
+  display: block;
+  animation: appear 0.8s forwards;
+}
+body footer {
+  padding: 10px;
+  font-size: 11px;
+  text-align: center;
+}
+body footer a {
+  font-size: 11px;
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 660px) {
+  body {
+    background-image: url("images/image-hero-mobile.jpg");
+  }
+  body header {
+    margin-bottom: 180px;
+    padding: 30px;
+    width: 100%;
+    height: 80px;
+    min-width: auto;
+    max-width: 560px;
+    position: relative;
+  }
+  body header .logo {
+    width: 40%;
+    min-width: 90px;
+    max-width: 120px;
+  }
+  body header #openMenu,
+  body header #closeMenu {
+    width: 20px;
+  }
+  body header #openMenu:hover,
+  body header #closeMenu:hover {
+    cursor: pointer;
+  }
+  body header #openMenu {
+    display: block;
+  }
+  body header ul {
+    display: none;
+    width: 90%;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    position: absolute;
+    left: 5%;
+    top: 90px;
+    z-index: 10;
+  }
+  body header ul li {
+    margin: 0;
+    padding: 16px;
+    display: block;
+    font-weight: 500;
+    color: hsl(0, 0%, 0%);
+    border-top: 1px solid gainsboro;
+  }
+  body header ul li:first-child {
+    border-top: none;
+  }
+  body main {
+    width: 90%;
+    min-width: auto;
+    max-width: 520px;
+  }
+  body main section .btn,
+  body main section .bookmark,
+  body main section .outOfStock {
+    padding: 8px 14px;
+  }
+  body main #project div {
+    justify-content: center;
+  }
+  body main #project div .btn {
+    padding: 8px 20px;
+    margin-right: 10px;
+  }
+  body main #project div .bookmark {
+    padding: 0;
+  }
+  body main #project div .bookmark span {
+    display: none;
+  }
+  body main #project div .bookmark #bookmarkIcon {
+    position: static;
+  }
+  body main #summary {
+    justify-content: center;
+  }
+  body main #summary .records {
+    flex-basis: 60%;
+    margin-bottom: 0;
+    padding: 20px;
+    border-left: none;
+    border-top: 1px solid gainsboro;
+    text-align: center;
+  }
+  body main #summary .records:first-of-type {
+    padding-left: 20px;
+    border-top: none;
+  }
+  body main #summary .progress {
+    margin-top: 10px;
+  }
+  body main #introduction article hgroup {
+    display: block;
+  }
+  body main #introduction article hgroup h3 {
+    margin-bottom: 4px;
+  }
+  body main #introduction article div {
+    height: auto;
+    display: block;
+  }
+  body main #introduction article div p {
+    margin-bottom: 10px;
+  }
+  body main #pledgeModal {
+    width: 90%;
+    min-width: auto;
+    max-width: 610px;
+  }
+  body main #pledgeModal .noReward label::before,
+  body main #pledgeModal .reward label::before {
+    top: 32px;
+  }
+  body main #pledgeModal .noReward label::after,
+  body main #pledgeModal .reward label::after {
+    top: 32px;
+  }
+  body main #pledgeModal .noReward label .wrapper,
+  body main #pledgeModal .reward label .wrapper {
+    padding-bottom: 20px;
+  }
+  body main #pledgeModal .noReward label .wrapper p,
+  body main #pledgeModal .reward label .wrapper p {
+    margin-left: 0;
+  }
+  body main #pledgeModal .noReward label::before {
+    top: 22px;
+  }
+  body main #pledgeModal .noReward label::after {
+    top: 22px;
+  }
+  body main #pledgeModal .reward label .wrapper {
+    display: block;
+  }
+  body main #pledgeModal .reward label .wrapper div {
+    display: inline-block;
+    margin-left: 16px;
+  }
+  body main #pledgeModal .reward label .wrapper div h4 {
+    margin: 0;
+  }
+  body main #pledgeModal .reward label .wrapper .remaining {
+    position: static;
+  }
+  body main #pledgeModal .reward .customPledge {
+    flex-direction: column;
+    justify-content: center;
+  }
+  body main #pledgeModal .reward .customPledge p {
+    margin-bottom: 12px;
+  }
+  body main #pledgeModal .reward .customPledge div {
+    padding: 0 6px;
+  }
+  body main #pledgeModal .reward .customPledge div input {
+    padding: 10px 16px;
+    margin-right: 4px;
+    width: 70px;
+  }
+  body main #thankMsg {
+    width: 90%;
+    min-width: auto;
+    max-width: 400px;
+  }
+  body main #thankMsg .btn {
+    padding: 8px 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body header {
+    margin-bottom: 140px;
+  }
+  body main #project .icon {
+    width: 50px;
+    top: -25px;
+    transform: translateX(-25px);
+  }
+  body main #pledgeModal .noReward label .wrapper div {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  body main #pledgeModal .reward label .wrapper div {
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

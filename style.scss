@@ -1,0 +1,829 @@
+$moderate_cyan: hsl(176, 50%, 47%);
+$dark_cyan: hsl(176, 72%, 28%);
+$black: hsl(0, 0%, 0%);
+$dark_gray: hsl(0, 0%, 48%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Commissioner;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@keyframes shadow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.4;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body::before {
+    content: "";
+    width: 100%;
+    background-color: $black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    display: none;
+}
+
+body.shadow::before {
+    display: block;
+    animation: shadow 0.8s forwards;
+}
+
+body {
+    background-image: url("images/image-hero-desktop.jpg");
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    header {
+        margin-bottom: 120px;
+        padding: 40px;
+        width: 80%;
+        min-width: 600px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            width: 20%;
+            min-width: 120px;
+            max-width: 160px;
+        }
+
+        #openMenu,
+        #closeMenu {
+            display: none;
+        }
+
+        ul {
+            li {
+                margin: 0 10px;
+                display: inline-block;
+                color: white;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    main {
+        margin-bottom: 40px;
+        width: 50%;
+        min-width: 520px;
+
+        section {
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: white;
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-weight: 700;
+                color: $black;
+            }
+
+            p {
+                font-size: 1rem;
+                color: $dark_gray;
+            }
+
+            .btn,
+            .bookmark,
+            .outOfStock {
+                padding: 12px 20px;
+                height: 44px;
+                border-radius: 24px;
+                border: none;
+                background-color: $moderate_cyan;
+                font-weight: 500;
+                color: white;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $dark_cyan;
+                }
+            }
+        }
+
+        #project {
+            position: relative;
+            text-align: center;
+
+            .icon {
+                width: 60px;
+                position: absolute;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-30px);
+            }
+
+            h1 {
+                font-size: 1.75rem;
+                margin-top: 12px;
+            }
+
+            p {
+                margin: 10px 0 30px 0;
+            }
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .bookmark {
+                    padding-left: 40px;
+                    padding-right: 20px;
+                    background-color: gainsboro;
+                    color: $dark_gray;
+                    position: relative;
+
+                    &:hover {
+                        color: $dark_gray;
+                    }
+
+                    #bookmarkIcon {
+                        height: 44px;
+                        position: absolute;
+                        top: 0;
+                        left: -10px;
+                        filter: contrast(35%);
+                    }
+                }
+
+                .bookmark.saved {
+                    color: $dark_cyan;
+
+                    #bookmarkIcon {
+                        filter: invert(34%) sepia(12%) saturate(4918%) hue-rotate(136deg) brightness(100%) contrast(84%);
+                    }
+                }
+            }
+        }
+
+        #summary {
+            display: flex;
+            flex-wrap: wrap;
+
+            .records {
+                flex-basis: 30%;
+                margin-bottom: 20px;
+                padding: 0 20px 10px 30px;
+                border-left: 1px solid gainsboro;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    margin-top: 6px;
+                }
+            }
+
+            .records:first-of-type {
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .progress {
+                width: 100%;
+                height: 10px;
+                border-radius: 10px;
+                background-color: gainsboro;
+
+                div {
+                    width: 89.9%;
+                    height: 10px;
+                    border-radius: 10px;
+                    background-color: $moderate_cyan;
+                }
+            }
+        }
+
+        #introduction {
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 10px;
+            }
+
+            p {
+                line-height: 1.6;
+                margin: 30px 0;
+            }
+
+            article {
+                margin-bottom: 24px;
+                padding: 30px 20px;
+                border: 2px solid gainsboro;
+                border-radius: 10px;
+
+                hgroup {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    h3 {
+                        font-size: 1.15rem;
+                        margin: 0;
+                    }
+
+                    p {
+                        color: $moderate_cyan;
+                        margin: 0;
+                    }
+                }
+
+                div {
+                    height: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        span {
+                            font-size: 2rem;
+                            font-weight: 700;
+                            color: $black;
+                            vertical-align: middle;
+                            margin-right: 6px;
+                        }
+                    }
+                }
+            }
+
+            .unavailable {
+                opacity: 0.4;
+                margin-bottom: 0;
+
+                .outOfStock {
+                    background-color: $dark_gray;
+
+                    &:hover {
+                        cursor: not-allowed;
+                        background-color: $dark_gray;
+                    }
+                }
+            }
+        }
+
+        #pledgeModal,
+        #thankMsg {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        #pledgeModal {
+            width: 60%;
+            min-width: 610px;
+            max-width: 800px;
+
+            .close {
+                text-align: right;
+
+                img:hover {
+                    cursor: pointer;
+                }
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 10px;
+            }
+
+            p {
+                line-height: 1.6;
+                margin: 8px 0 30px 0;
+            }
+
+            .noReward,
+            .reward {
+                margin-bottom: 24px;
+                border: 2px solid gainsboro;
+                border-radius: 10px;
+
+                label {
+                    cursor: pointer;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        border-radius: 50%;
+                        border: 1px solid gainsboro;
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        top: 24px;
+                        left: 19px;
+                    }
+
+                    &::after {
+                        content: "";
+                        border-radius: 50%;
+                        border: 1px solid $moderate_cyan;
+                        background-color: $moderate_cyan;
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        top: 24px;
+                        left: 19px;
+                        transform: scale(55%);
+                        opacity: 0;
+                    }
+
+                    .wrapper {
+                        padding: 20px 20px 30px 20px;
+
+                        input {
+                            width: 20px;
+                            height: 20px;
+                            vertical-align: middle;
+                            appearance: none;
+                        }
+
+                        h4 {
+                            display: inline;
+                            font-size: 1.15rem;
+                            vertical-align: middle;
+
+                            &:hover {
+                                color: $moderate_cyan;
+                            }
+                        }
+
+                        p {
+                            margin: 12px 0 0 40px;
+                        }
+                    }
+                }
+
+                label.clicked::after {
+                    opacity: 1;
+                }
+            }
+
+            .noReward.picked,
+            .reward.picked {
+                border-color: $moderate_cyan;
+            }
+
+            .noReward {
+                label {
+                    .wrapper {
+                        div {
+                            margin-top: -22px;
+                            margin-left: 40px;
+                        }
+                    }
+                }
+            }
+
+            .reward {
+                label {
+                    .wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        position: relative;
+
+                        div {
+                            display: flex;
+                            align-items: center;
+
+                            h4 {
+                                margin-left: 20px;
+                                margin-right: 16px;
+                            }
+
+                            p {
+                                font-size: 1.15rem;
+                                font-weight: 700;
+                                color: $moderate_cyan;
+                                vertical-align: middle;
+                                margin: 0;
+                            }
+                        }
+
+                        .detail {
+                            line-height: 1.6;
+                        }
+
+                        .remaining {
+                            position: absolute;
+                            top: 10px;
+                            right: 20px;
+                            vertical-align: middle;
+
+                            span {
+                                font-size: 1.15rem;
+                                font-weight: 700;
+                                color: $black;
+                                margin-right: 6px;
+                            }
+                        }
+                    }
+                }
+
+                .customPledge {
+                    padding: 20px;
+                    border-top: 2px solid gainsboro;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    div {
+                        input {
+                            padding: 12px 20px;
+                            margin-right: 8px;
+                            width: 90px;
+                            height: 45px;
+                            border-radius: 24px;
+                            border: 2px solid gainsboro;
+                            outline: none;
+                            font-weight: 700;
+                            color: $black;
+                            caret-color: $dark_cyan;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+
+                            &:focus {
+                                border: 1px solid $dark_cyan;
+                                outline: none;
+                            }
+
+
+                        }
+                    }
+                }
+
+                .hide {
+                    display: none;
+                }
+            }
+
+            .notAllowed {
+                opacity: 0.4;
+                margin-bottom: 0;
+
+                label {
+                    cursor: not-allowed;
+
+                    .wrapper {
+                        h4:hover {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+
+        #thankMsg {
+            width: 38%;
+            min-width: 400px;
+            max-width: 500px;
+            text-align: center;
+
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 30px;
+            }
+
+            p {
+                line-height: 1.6;
+                margin: 20px 0 30px 0;
+            }
+        }
+
+        #pledgeModal.show,
+        #thankMsg.show {
+            display: block;
+            animation: appear 0.8s forwards;
+        }
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 11px;
+        text-align: center;
+
+        a {
+            font-size: 11px;
+            color: hsl(228, 45%, 44%);
+        }
+    }
+}
+
+@media screen and (max-width:660px) {
+    body {
+        background-image: url("images/image-hero-mobile.jpg");
+
+        header {
+            margin-bottom: 180px;
+            padding: 30px;
+            width: 100%;
+            height: 80px;
+            min-width: auto;
+            max-width: 560px;
+            position: relative;
+
+            .logo {
+                width: 40%;
+                min-width: 90px;
+                max-width: 120px;
+            }
+
+            #openMenu,
+            #closeMenu {
+                width: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            #openMenu {
+                display: block;
+            }
+
+            ul {
+                display: none;
+                width: 90%;
+                border-radius: 10px;
+                background-color: whitesmoke;
+                position: absolute;
+                left: 5%;
+                top: 90px;
+                z-index: 10;
+
+                li {
+                    margin: 0;
+                    padding: 16px;
+                    display: block;
+                    font-weight: 500;
+                    color: $black;
+                    border-top: 1px solid gainsboro;
+                }
+
+                li:first-child {
+                    border-top: none;
+                }
+
+            }
+        }
+
+        main {
+            width: 90%;
+            min-width: auto;
+            max-width: 520px;
+
+            section {
+
+                .btn,
+                .bookmark,
+                .outOfStock {
+                    padding: 8px 14px;
+                }
+            }
+
+            #project {
+                div {
+                    justify-content: center;
+
+                    .btn {
+                        padding: 8px 20px;
+                        margin-right: 10px;
+                    }
+
+                    .bookmark {
+                        padding: 0;
+
+                        span {
+                            display: none;
+                        }
+
+                        #bookmarkIcon {
+                            position: static;
+                        }
+                    }
+                }
+            }
+
+            #summary {
+                justify-content: center;
+
+                .records {
+                    flex-basis: 60%;
+                    margin-bottom: 0;
+                    padding: 20px;
+                    border-left: none;
+                    border-top: 1px solid gainsboro;
+                    text-align: center;
+                }
+
+                .records:first-of-type {
+                    padding-left: 20px;
+                    border-top: none;
+                }
+
+                .progress {
+                    margin-top: 10px;
+                }
+            }
+
+            #introduction {
+                article {
+                    hgroup {
+                        display: block;
+
+                        h3 {
+                            margin-bottom: 4px;
+                        }
+                    }
+
+                    div {
+                        height: auto;
+                        display: block;
+
+                        p {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            #pledgeModal {
+                width: 90%;
+                min-width: auto;
+                max-width: 610px;
+
+                .noReward,
+                .reward {
+                    label {
+                        &::before {
+                            top: 32px;
+                        }
+
+                        &::after {
+                            top: 32px;
+                        }
+
+                        .wrapper {
+                            padding-bottom: 20px;
+
+                            p {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+
+                .noReward {
+                    label {
+                        &::before {
+                            top: 22px;
+                        }
+
+                        &::after {
+                            top: 22px;
+                        }
+                    }
+                }
+
+                .reward {
+                    label {
+                        .wrapper {
+                            display: block;
+
+                            div {
+                                display: inline-block;
+                                margin-left: 16px;
+
+                                h4 {
+                                    margin: 0;
+                                }
+                            }
+
+                            .remaining {
+                                position: static;
+                            }
+                        }
+                    }
+
+                    .customPledge {
+                        flex-direction: column;
+                        justify-content: center;
+
+                        p {
+                            margin-bottom: 12px;
+                        }
+
+                        div {
+                            padding: 0 6px;
+
+                            input {
+                                padding: 10px 16px;
+                                margin-right: 4px;
+                                width: 70px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #thankMsg {
+                width: 90%;
+                min-width: auto;
+                max-width: 400px;
+
+                .btn {
+                    padding: 8px 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:420px) {
+    body {
+        header {
+            margin-bottom: 140px;
+        }
+
+        main {
+            #project {
+                .icon {
+                    width: 50px;
+                    top: -25px;
+                    transform: translateX(-25px);
+                }
+            }
+
+            #pledgeModal {
+                .noReward {
+                    label {
+                        .wrapper {
+                            div {
+                                width: 100%;
+                                margin-top: 20px;
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+
+                .reward {
+                    label {
+                        .wrapper {
+                            div {
+                                width: 100%;
+                                margin-top: 30px;
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
